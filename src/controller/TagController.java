@@ -8,17 +8,15 @@ public class TagController {
 	private static TagController instance = null;
 	private LinkedList<Tag> listaTags = new LinkedList<Tag>();
 	
-	public TagController() {
-        // Construtor privado para impedir a criaÁ„o de inst‚ncias fora da classe.
-	}
-	
+	private TagController() {
+        // Construtor privado para impedir a cria√ß√£o de inst√¢ncias fora da classe.
+    }
 	public static TagController getInstance() {
-	     if (instance == null) {
-	        instance = new TagController();
-	    }
+	        if (instance == null) {
+	            instance = new TagController();
+	        }
 	        return instance;
 	}
-	
 	public void cadastrarTag(Tag tag) {
 		this.listaTags.add(tag);
 	}

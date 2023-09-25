@@ -1,36 +1,41 @@
 package view;
 
 import java.util.Calendar;
-
 import java.util.Date;
 import java.util.Iterator;
+import controller.ProxyColecaoController;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import controller.ColecaoController;
-import controller.PublicacaoController;
-import controller.RelacaoColecaoTagController;
-import controller.TagController;
+import controller.*;
 import model.Colecao;
 import model.Publicacao;
 import model.RelacaoColecaoTag;
 import model.Tag;
 
 public class MainView {
-	ColecaoController colecaoController;
+	ProxyColecaoController colecaoController;
 	PublicacaoController publicacaoController;
 	TagController tagController;
 	RelacaoColecaoTagController relacaoController;
 	Calendar c = Calendar.getInstance();
-	ImageIcon icon_1 = new ImageIcon("C:\\Users\\jonat\\OneDrive\\Imagens\\Capturas de tela\\logo_02.jpg");
+	ImageIcon icon_1 = new ImageIcon("C:\\Nova Pasta\\logo_02.jpg");
 
-	public MainView(ColecaoController colecaoController, PublicacaoController publicacaoControler,TagController tagController, RelacaoColecaoTagController relacaoController){
+	public MainView(ProxyColecaoController colecaoController, PublicacaoController publicacaoControler,TagController tagController, RelacaoColecaoTagController relacaoController){
 		this.colecaoController = colecaoController;
 		this.publicacaoController = publicacaoControler;
 		this.tagController = tagController;
 		this.relacaoController = relacaoController;
 	}
+	
+	public void proxyValidador(){
+		
+		JOptionPane.showMessageDialog(null, "Bem vindo!", "AgIFF", JOptionPane.PLAIN_MESSAGE, icon_1);
+		
+	}
+	
+	
 	public void displayTelaInicial() {
 		JOptionPane.showMessageDialog(null, "Bem vindo!", "AgIFF", JOptionPane.PLAIN_MESSAGE, icon_1);
 		String[] arrayOpcoes = new String[8];

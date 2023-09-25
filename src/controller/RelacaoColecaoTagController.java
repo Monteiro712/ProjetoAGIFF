@@ -8,19 +8,16 @@ public class RelacaoColecaoTagController {
 	private static RelacaoColecaoTagController instance = null;
 	private LinkedList<RelacaoColecaoTag> listaDeRelacoes = new LinkedList<RelacaoColecaoTag>();
 	
-	public RelacaoColecaoTagController() {
-        // Construtor privado para impedir a criaÁ„o de inst‚ncias fora da classe.
-	}
+	private RelacaoColecaoTagController() {
+        // Construtor privado para impedir a cria√ß√£o de inst√¢ncias fora da classe.
+    }
 	
 	public static RelacaoColecaoTagController getInstance() {
-	     if (instance == null) {
-	        instance = new RelacaoColecaoTagController();
-	    }
+	        if (instance == null) {
+	            instance = new RelacaoColecaoTagController();
+	        }
 	        return instance;
 	}
-
-	
-	
 	public void realizarAssociacao(RelacaoColecaoTag relacao) {
 		this.listaDeRelacoes.add(relacao);
 	}

@@ -10,16 +10,17 @@ public class PublicacaoController {
 	private static PublicacaoController instance = null;
 	private LinkedList<Publicacao> listaPublicacoes = new LinkedList<Publicacao>();
 	
-	public PublicacaoController() {
-        // Construtor privado para impedir a criaÁ„o de inst‚ncias fora da classe.
-	}
+	private PublicacaoController() {
+        // Construtor privado para impedir a cria√ß√£o de inst√¢ncias fora da classe.
+    }
 	
 	public static PublicacaoController getInstance() {
-	     if (instance == null) {
-	        instance = new PublicacaoController();
-	    }
-	        return instance;
-	}
+        if (instance == null) {
+            instance = new PublicacaoController();
+        }
+        return instance;
+    }
+	
 	
 	public LinkedList<Publicacao> getListaPublicacoes() {
 		return listaPublicacoes;
