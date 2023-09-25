@@ -41,7 +41,7 @@ public class Publicacao {
 	}
 	
 	public String toString() {
-		String publicaoToStrig = "TÃ­tulo: " + this.titulo + " -  " + "Autor: " + this.autor + "\n" +
+		String publicaoToStrig = "Título: " + this.titulo + " -  " + "Autor: " + this.autor + "\n" +
 							     "Link: " + this.link + "\n";
 		return publicaoToStrig;
 

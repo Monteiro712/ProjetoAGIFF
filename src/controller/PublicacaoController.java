@@ -7,8 +7,22 @@ import model.Colecao;
 import model.Publicacao;
 
 public class PublicacaoController {
+	
+	private static PublicacaoController instance = null;
 	private LinkedList<Publicacao> listaPublicacoes = new LinkedList<Publicacao>();
 	
+	private PublicacaoController() {
+        // Construtor privado para impedir a criação de instancias fora da classe.
+    }
+	
+	public static PublicacaoController getInstance() {
+        if (instance == null) {
+            instance = new PublicacaoController();
+        }
+        return instance;
+    }
+	
+
 	
 	public LinkedList<Publicacao> getListaPublicacoes() {
 		return listaPublicacoes;

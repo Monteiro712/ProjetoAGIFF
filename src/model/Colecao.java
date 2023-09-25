@@ -34,8 +34,8 @@ public class Colecao {
 		this.titulo = titulo;
 	}
 	public String toString() {
-		String colecaoToString = "T√≠tulo da Cole√ß√£o: " + this.titulo + "\nData de criaca√ß√£o: "+ dateForm.format(this.dataCriacao) + "\n" + 
-								"Usu√°rio: " + this.usuario;
+		String colecaoToString = "TÌtulo da ColeÁ„oo: " + this.titulo + "\nData de criaÁ„o: "+ dateForm.format(this.dataCriacao) + "\n" + 
+								"Usu·rio: " + this.usuario;
 		return colecaoToString;
 	}
 	
