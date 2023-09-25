@@ -9,11 +9,11 @@ import model.Colecao;
 
 public class ProxyColecaoController implements IColecaoController  {
    
-	private IColecaoController ColecaoControllerReal;
+	private ColecaoController ColecaoControllerReal;
 	
 
-    public ProxyColecaoController(ColecaoController colecaoController) {
-    	this.ColecaoControllerReal =  (IColecaoController) colecaoController.getInstance();
+    public ProxyColecaoController() {
+    	this.ColecaoControllerReal =   ColecaoController.getInstance();
     }
 
 

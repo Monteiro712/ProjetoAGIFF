@@ -8,14 +8,14 @@ import model.Colecao;
 public class ColecaoController { 
 
 
-    private  ColecaoController instance = null;
+    private static  ColecaoController instance = null;
     private LinkedList<Colecao> listaColecoes = new LinkedList<Colecao>();
 
     private ColecaoController() {
         // Construtor privado para impedir a criação de instâncias fora da classe.
     }
 
-    public ColecaoController getInstance() {
+    public static  ColecaoController getInstance() {
         if (instance == null) {
             instance = new ColecaoController();
         }
