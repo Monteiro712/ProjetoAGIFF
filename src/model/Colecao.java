@@ -34,7 +34,7 @@ public class Colecao {
 		this.titulo = titulo;
 	}
 	public String toString() {
-		String colecaoToString = "Título da Coleçãoo: " + this.titulo + "\nData de criação: "+ dateForm.format(this.dataCriacao) + "\n" + 
+		String colecaoToString = "Título da Coleção: " + this.titulo + "\nData de criação: "+ dateForm.format(this.dataCriacao) + "\n" + 
 								"Usuário: " + this.usuario;
 		return colecaoToString;
 	}

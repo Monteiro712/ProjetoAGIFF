@@ -9,17 +9,17 @@ import model.Colecao;
 
 public class ProxyColecaoController implements IColecaoController  {
    
-	private ColecaoController ColecaoControllerReal;
+	private ColecaoControllerReal colecaoControllerReal;
 	
 
     public ProxyColecaoController() {
-    	this.ColecaoControllerReal =   ColecaoController.getInstance();
+    	this.colecaoControllerReal =   ColecaoControllerReal.getInstance();
     }
 
 
     @Override
     public LinkedList<Colecao> getListaColecoes() {
-    	return ColecaoControllerReal.getListaColecoes();
+    	return colecaoControllerReal.getListaColecoes();
 	}
     
     @Override
@@ -27,7 +27,7 @@ public class ProxyColecaoController implements IColecaoController  {
     {
         if (verificarPermissaoDeCriacao()) 
         {
-            ColecaoControllerReal.cadastrarColecao(colecao);
+            colecaoControllerReal.cadastrarColecao(colecao);
         } 
         else 
         {
@@ -38,7 +38,7 @@ public class ProxyColecaoController implements IColecaoController  {
     @Override
     public Colecao buscarColecao(String colecaoTitulo){
     	
-    	return ColecaoControllerReal.buscarColecao(colecaoTitulo);
+    	return colecaoControllerReal.buscarColecao(colecaoTitulo);
     }
 
     private boolean verificarPermissaoDeCriacao() {

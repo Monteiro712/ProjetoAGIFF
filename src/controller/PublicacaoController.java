@@ -22,8 +22,6 @@ public class PublicacaoController {
         return instance;
     }
 	
-
-	
 	public LinkedList<Publicacao> getListaPublicacoes() {
 		return listaPublicacoes;
 	}

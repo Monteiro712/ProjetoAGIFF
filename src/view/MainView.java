@@ -50,7 +50,7 @@ public class MainView {
 	
 	public void displayTelaInicial() {
 		JOptionPane.showMessageDialog(null, "Bem vindo!", "AgIFF", JOptionPane.PLAIN_MESSAGE, icon_1);
-		String[] arrayOpcoes = new String[8];
+		String[] arrayOpcoes = new String[9];
 		arrayOpcoes[0] = "Cadastrar Coleção";
 		arrayOpcoes[1] = "Cadastrar Publicação";
 		arrayOpcoes[2] = "Cadastrar uma Tag";
@@ -58,7 +58,8 @@ public class MainView {
 		arrayOpcoes[4] = "Visualizar todas as Coleções cadastradas";
 		arrayOpcoes[5] = "Associar Tag e Coleção";
 		arrayOpcoes[6] = "Buscar Coleções usando uma Tag";
-		arrayOpcoes[7] = "Sair";
+		arrayOpcoes[7] = "Realizar carga no dataset";
+		arrayOpcoes[8] = "Sair";
 		Object opcaoEscolhida = JOptionPane.showInputDialog(null, "Escolha uma opção.", "AgIFF" , JOptionPane.PLAIN_MESSAGE, null, arrayOpcoes, "Regular");
 		displayEscolha(opcaoEscolhida,arrayOpcoes);
 	}
@@ -118,7 +119,7 @@ public class MainView {
 						i++;
 					}
 					Object colecaoEscolhida = JOptionPane.showInputDialog(null, "Escolha uma coleção para visualizar.", "AgIFF" , JOptionPane.PLAIN_MESSAGE, null, arrayOpcoesDeColecoes, "Regular");
-					JOptionPane.showMessageDialog(null,"Confira os dados da Coleção: \n"+this.colecaoController.buscarColecao(colecaoEscolhida.toString()).toString()+"\nPublicaÃ§Ãµes: \n"+this.publicacaoController.imprimirPublicacoes(this.colecaoController.buscarColecao(colecaoEscolhida.toString())) , "AgIFF", JOptionPane.INFORMATION_MESSAGE, icon_1);
+					JOptionPane.showMessageDialog(null,"Confira os dados da Coleção: \n"+this.colecaoController.buscarColecao(colecaoEscolhida.toString()).toString()+"\nPublicações: \n"+this.publicacaoController.imprimirPublicacoes(this.colecaoController.buscarColecao(colecaoEscolhida.toString())) , "AgIFF", JOptionPane.INFORMATION_MESSAGE, icon_1);
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Não", "AgIFF", JOptionPane.PLAIN_MESSAGE);
 				}
@@ -186,6 +187,23 @@ public class MainView {
 				}
 	
 			}
+			if(opcaoEscolhida == "Realizar carga no dataset") {
+				this.colecaoController.cadastrarColecao(new Colecao("Computação",c.getTime(),"John Lenon"));
+				this.colecaoController.cadastrarColecao(new Colecao("Engenharia",c.getTime(),"Paul McCartney"));
+				this.colecaoController.cadastrarColecao(new Colecao("Ciências Sociais",c.getTime(),"Ringo Star"));
+				this.publicacaoController.associarPublicacao(new Publicacao( "George Harrison","Arquitetura MVC"," www.computacaoagora.com", c.getTime()), this.colecaoController.buscarColecao("Computação"));
+				this.publicacaoController.associarPublicacao(new Publicacao( "Dave Grohl","Padrões SOLID"," www.computacaoagora.com", c.getTime()), this.colecaoController.buscarColecao("Computação"));
+				this.publicacaoController.associarPublicacao(new Publicacao( "Kurt Cobain","Java: como programar"," www.computacaoagora.com", c.getTime()), this.colecaoController.buscarColecao("Computação"));
+				this.publicacaoController.associarPublicacao(new Publicacao( "Aretha Franklin","Como estudar Cáculo"," www.engeharia.com", c.getTime()), this.colecaoController.buscarColecao("Engenharia"));
+				this.publicacaoController.associarPublicacao(new Publicacao( "Miles Davis","Matemática para computação"," www.engeharia.com", c.getTime()), this.colecaoController.buscarColecao("Engenharia"));
+				this.publicacaoController.associarPublicacao(new Publicacao( "Milton Santos","A evolução do uso de computadores"," www.geografia.com", c.getTime()), this.colecaoController.buscarColecao("Ciências Sociais"));
+				this.tagController.cadastrarTag(new Tag("Computadores", "Trablahos que façam referência a computadores."));
+				RelacaoColecaoTag auxiliar = new RelacaoColecaoTag(this.colecaoController.buscarColecao("Computação"), this.tagController.buscarTag("Computadores"));
+				this.relacaoController.realizarAssociacao(auxiliar);
+				auxiliar = new RelacaoColecaoTag(this.colecaoController.buscarColecao("Ciências Sociais"), this.tagController.buscarTag("Computadores"));
+				this.relacaoController.realizarAssociacao(auxiliar);
+			}
+			
 			opcaoEscolhida = JOptionPane.showInputDialog(null, "Escolha uma opção.", "AgIFF" , JOptionPane.PLAIN_MESSAGE, null, arrayOpcoes, "Regular");
 		}
 	}

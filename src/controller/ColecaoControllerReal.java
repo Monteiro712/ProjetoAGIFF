@@ -29,4 +29,11 @@ public class ColecaoControllerReal implements IColecaoController {
 		}
 		return null;
 	}
+
+    public static  ColecaoControllerReal getInstance() {
+        if (instance == null) {
+            instance = new ColecaoControllerReal();
+        }
+        return instance;
+    }
 }

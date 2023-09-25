@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import model.Colecao;
 
 
-public class ColecaoController { 
+public class ColecaoController implements IColecaoController { 
 
 
     private static  ColecaoController instance = null;

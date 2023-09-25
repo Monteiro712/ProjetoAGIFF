@@ -12,4 +12,9 @@ public class Tag {
 	public String getNome() {
 		return this.nome;
 	}
+	
+	public String getDescricao() {
+		return this.descricao;
+	}
+
 }
